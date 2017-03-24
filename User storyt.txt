@@ -1,0 +1,36 @@
+
+Haluan, että voin tallettaa jokaisen laitteen erikseen ja yksilöllisesti tietokantaan käyttämällä selainta
+Haluan, että järjestelmä luo automaattisen laitetunnuksen (juokseva numero)
+Haluan tallettaa laitteista seuraavat tiedot
+- laitetunnus, tuotemerkki, malli, sarjanumero, kuvaus, hankintapvm, takuupäättyypvm, hinta, kustannuspaikka
+Haluan, että voin selata laitteita
+Haluan muokata laitteiden tietoja 
+Haluan poistaa laitteita tietokannasta
+
+Haluan merkitä laitteet viivakooditarralla tai QR-kooditarralla
+Haluan tulostaa tarran lasertulostimella
+Haluan tulostaa tarran tarratulostimella
+
+Haluan, että järjestelmä suojataan salasanalla ennen kuin se otetaan yleiseen käyttöön 
+
+IP- / MAC osoitteet (tietotekniset specsit)
+
+Koko henkilökunnan käytettävissä (yksilölliset käyttäjätunnukset & salasanat)
+ 	järjestäytyminen
+	vastuut
+	kortinpeluu
+	GitHub account 
+	projektin luominen
+	määrittelykansio
+	suunnittelukansio
+	dokumentointi
+	mallit
+	luokkakaaviot
+
+Käyttöohjeet? Linkki laitevalmistajan kotisivuille 
+
+Yhdistetäänkö heti seurantajärjestelmään vai kehitetäänkö erikseen?
+		
+
+
+
