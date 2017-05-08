@@ -1,0 +1,57 @@
+﻿@model IEnumerable<TILAHA.Controllers.Models.Varuste>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AccId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Acc1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Acc2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Acc3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Acc4)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Acc1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Acc2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Acc3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Acc4)
+        </td>
+        
+    </tr>
+}
+
+</table>

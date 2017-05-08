@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TILAHA.Controllers.Models.Status>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OletusPaikka)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Muu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lainassa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OletusPaikka)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Muu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lainassa)
+        </td>
+        
+    </tr>
+}
+
+</table>

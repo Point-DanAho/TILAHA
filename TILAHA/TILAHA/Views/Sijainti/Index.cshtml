@@ -1,0 +1,65 @@
+﻿@model IEnumerable<TILAHA.Controllers.Models.Sijainti>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Building)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Space)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Locker)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shelf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Building)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Space)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Locker)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shelf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+       
+    </tr>
+}
+
+</table>
+<button onclick="goBack()">Back to home page</button>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+

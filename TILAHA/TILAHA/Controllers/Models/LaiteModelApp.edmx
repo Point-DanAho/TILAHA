@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LaitekantaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Huolto">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Service" Type="varchar" MaxLength="100" />
+          <Property Name="ServicePhone" Type="bigint" />
+          <Property Name="Servicewww" Type="varchar" MaxLength="100" />
+          <Property Name="ServiceMail" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Kuva">
+          <Key>
+            <PropertyRef Name="DeviceID" />
+          </Key>
+          <Property Name="DeviceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="image" />
+          <Property Name="Image2" Type="image" />
+          <Property Name="Image3" Type="image" />
+        </EntityType>
+        <EntityType Name="Lainaaja">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RespPerson" Type="varchar" MaxLength="50" />
+          <Property Name="User" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Laite">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccId" Type="bigint" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="SN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cond" Type="varchar" MaxLength="50" />
+          <Property Name="DeviceType" Type="varchar" MaxLength="50" />
+          <Property Name="AddInfo" Type="varchar" MaxLength="50" />
+          <Property Name="PurcDate" Type="datetime" Nullable="false" />
+          <Property Name="WarrEndDate" Type="datetime" />
+          <Property Name="PurchPrize" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Osoite">
+          <Key>
+            <PropertyRef Name="Building" />
+          </Key>
+          <Property Name="Building" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="Address2" Type="varchar" MaxLength="100" />
+          <Property Name="PostNR" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Sijainti">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Building" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Space" Type="varchar" MaxLength="50" />
+          <Property Name="Locker" Type="varchar" MaxLength="50" />
+          <Property Name="Shelf" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OletusPaikka" Type="varchar" MaxLength="50" />
+          <Property Name="Muu" Type="varchar" MaxLength="50" />
+          <Property Name="Lainassa" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Takuu">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Varuste">
+          <Key>
+            <PropertyRef Name="AccId" />
+          </Key>
+          <Property Name="AccId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeviceID" Type="int" Nullable="false" />
+          <Property Name="Acc1" Type="varchar" MaxLength="50" />
+          <Property Name="Acc2" Type="varchar" MaxLength="50" />
+          <Property Name="Acc3" Type="varchar" MaxLength="50" />
+          <Property Name="Acc4" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="LaitekantaModelStoreContainer">
+          <EntitySet Name="Huolto" EntityType="Self.Huolto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kuva" EntityType="Self.Kuva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lainaaja" EntityType="Self.Lainaaja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Laite" EntityType="Self.Laite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Osoite" EntityType="Self.Osoite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sijainti" EntityType="Self.Sijainti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Takuu" EntityType="Self.Takuu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Varuste" EntityType="Self.Varuste" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LaitekantaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Huolto">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Service" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ServicePhone" Type="Int64" />
+          <Property Name="Servicewww" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Kuva">
+          <Key>
+            <PropertyRef Name="DeviceID" />
+          </Key>
+          <Property Name="DeviceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Image2" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Image3" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Lainaaja">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RespPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Laite">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccId" Type="Int64" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cond" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeviceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PurcDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WarrEndDate" Type="DateTime" Precision="3" />
+          <Property Name="PurchPrize" Type="Int16" />
+        </EntityType>
+        <EntityType Name="Osoite">
+          <Key>
+            <PropertyRef Name="Building" />
+          </Key>
+          <Property Name="Building" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PostNR" Type="Int16" />
+        </EntityType>
+        <EntityType Name="Sijainti">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Building" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Space" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Locker" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Shelf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OletusPaikka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Muu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lainassa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Takuu">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Varuste">
+          <Key>
+            <PropertyRef Name="AccId" />
+          </Key>
+          <Property Name="AccId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceID" Type="Int32" Nullable="false" />
+          <Property Name="Acc1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Acc2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Acc3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Acc4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="LaitekantaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Huolto" EntityType="Self.Huolto" />
+          <EntitySet Name="Kuva" EntityType="Self.Kuva" />
+          <EntitySet Name="Lainaaja" EntityType="Self.Lainaaja" />
+          <EntitySet Name="Laite" EntityType="Self.Laite" />
+          <EntitySet Name="Osoite" EntityType="Self.Osoite" />
+          <EntitySet Name="Sijainti" EntityType="Self.Sijainti" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="Takuu" EntityType="Self.Takuu" />
+          <EntitySet Name="Varuste" EntityType="Self.Varuste" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LaitekantaModelStoreContainer" CdmEntityContainer="LaitekantaEntities">
+          <EntitySetMapping Name="Huolto">
+            <EntityTypeMapping TypeName="LaitekantaModel.Huolto">
+              <MappingFragment StoreEntitySet="Huolto">
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="ServicePhone" ColumnName="ServicePhone" />
+                <ScalarProperty Name="Servicewww" ColumnName="Servicewww" />
+                <ScalarProperty Name="ServiceMail" ColumnName="ServiceMail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kuva">
+            <EntityTypeMapping TypeName="LaitekantaModel.Kuva">
+              <MappingFragment StoreEntitySet="Kuva">
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Image2" ColumnName="Image2" />
+                <ScalarProperty Name="Image3" ColumnName="Image3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lainaaja">
+            <EntityTypeMapping TypeName="LaitekantaModel.Lainaaja">
+              <MappingFragment StoreEntitySet="Lainaaja">
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="RespPerson" ColumnName="RespPerson" />
+                <ScalarProperty Name="User" ColumnName="User" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Laite">
+            <EntityTypeMapping TypeName="LaitekantaModel.Laite">
+              <MappingFragment StoreEntitySet="Laite">
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="AccId" ColumnName="AccId" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="SN" ColumnName="SN" />
+                <ScalarProperty Name="Cond" ColumnName="Cond" />
+                <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+                <ScalarProperty Name="AddInfo" ColumnName="AddInfo" />
+                <ScalarProperty Name="PurcDate" ColumnName="PurcDate" />
+                <ScalarProperty Name="WarrEndDate" ColumnName="WarrEndDate" />
+                <ScalarProperty Name="PurchPrize" ColumnName="PurchPrize" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Osoite">
+            <EntityTypeMapping TypeName="LaitekantaModel.Osoite">
+              <MappingFragment StoreEntitySet="Osoite">
+                <ScalarProperty Name="Building" ColumnName="Building" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="PostNR" ColumnName="PostNR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sijainti">
+            <EntityTypeMapping TypeName="LaitekantaModel.Sijainti">
+              <MappingFragment StoreEntitySet="Sijainti">
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="Building" ColumnName="Building" />
+                <ScalarProperty Name="Space" ColumnName="Space" />
+                <ScalarProperty Name="Locker" ColumnName="Locker" />
+                <ScalarProperty Name="Shelf" ColumnName="Shelf" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="LaitekantaModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="OletusPaikka" ColumnName="OletusPaikka" />
+                <ScalarProperty Name="Muu" ColumnName="Muu" />
+                <ScalarProperty Name="Lainassa" ColumnName="Lainassa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Takuu">
+            <EntityTypeMapping TypeName="LaitekantaModel.Takuu">
+              <MappingFragment StoreEntitySet="Takuu">
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Varuste">
+            <EntityTypeMapping TypeName="LaitekantaModel.Varuste">
+              <MappingFragment StoreEntitySet="Varuste">
+                <ScalarProperty Name="AccId" ColumnName="AccId" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="Acc1" ColumnName="Acc1" />
+                <ScalarProperty Name="Acc2" ColumnName="Acc2" />
+                <ScalarProperty Name="Acc3" ColumnName="Acc3" />
+                <ScalarProperty Name="Acc4" ColumnName="Acc4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
