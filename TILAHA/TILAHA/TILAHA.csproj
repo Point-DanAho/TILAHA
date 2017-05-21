@@ -304,6 +304,7 @@
     <Content Include="Views\Status\Index.cshtml" />
     <Content Include="Views\Sijainti\Index.cshtml" />
     <Content Include="Views\Varusteet\Index.cshtml" />
+    <Content Include="Views\Poista\Delete.cshtml" />
     <Content Include="Views\Poista\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

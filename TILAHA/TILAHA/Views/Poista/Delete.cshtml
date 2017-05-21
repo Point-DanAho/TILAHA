@@ -1,0 +1,104 @@
+﻿@model TILAHA.Controllers.Models.Laite
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Poista</h2>
+
+<h3>Oletko varma, että haluat poistaa tämän laitteen?</h3>
+<div>
+    <h4>Laite</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cond)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cond)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurcDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurcDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarrEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarrEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchPrize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchPrize)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
