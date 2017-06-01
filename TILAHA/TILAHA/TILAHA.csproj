@@ -247,6 +247,7 @@
       <DependentUpon>AlytaloWebSovellusModel.edmx</DependentUpon>
       <LastGenOutput>AlytaloWebSovellusModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Eri_laitteiden_kayttoohjeita.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
