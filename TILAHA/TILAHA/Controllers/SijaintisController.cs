@@ -10,107 +10,107 @@ using TILAHA.Controllers.Models;
 
 namespace TILAHA.Controllers
 {
-    public class PoistaController : Controller
+    public class SijaintisController : Controller
     {
         private WarehouseDBEntities db = new WarehouseDBEntities();
 
-        // GET: Poista
+        // GET: Sijaintis
         public ActionResult Index()
         {
-            return View(db.Laitteet.ToList());
+            return View(db.Sijainti.ToList());
         }
 
-        // GET: Poista/Details/5
+        // GET: Sijaintis/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Laitteet laitteet = db.Laitteet.Find(id);
-            if (laitteet == null)
+            Sijainti sijainti = db.Sijainti.Find(id);
+            if (sijainti == null)
             {
                 return HttpNotFound();
             }
-            return View(laitteet);
+            return View(sijainti);
         }
-/*
-        // GET: Poista/Create
+
+        // GET: Sijaintis/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Poista/Create
+        // POST: Sijaintis/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DeviceId,WarrantyId,Make,Model,SN,Condition,DeviceType,AddInfo,PurcDate,WarrEndDate,PurchPrize")] Laitteet laitteet)
+        public ActionResult Create([Bind(Include = "DeviceId,Building,Space,Locker,Shelf,Status")] Sijainti sijainti)
         {
             if (ModelState.IsValid)
             {
-                db.Laitteet.Add(laitteet);
+                db.Sijainti.Add(sijainti);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(laitteet);
+            return View(sijainti);
         }
 
-        // GET: Poista/Edit/5
+        // GET: Sijaintis/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Laitteet laitteet = db.Laitteet.Find(id);
-            if (laitteet == null)
+            Sijainti sijainti = db.Sijainti.Find(id);
+            if (sijainti == null)
             {
                 return HttpNotFound();
             }
-            return View(laitteet);
+            return View(sijainti);
         }
 
-        // POST: Poista/Edit/5
+        // POST: Sijaintis/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DeviceId,WarrantyId,Make,Model,SN,Condition,DeviceType,AddInfo,PurcDate,WarrEndDate,PurchPrize")] Laitteet laitteet)
+        public ActionResult Edit([Bind(Include = "DeviceId,Building,Space,Locker,Shelf,Status")] Sijainti sijainti)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(laitteet).State = EntityState.Modified;
+                db.Entry(sijainti).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(laitteet);
+            return View(sijainti);
         }
-*/
-        // GET: Poista/Delete/5
+
+        // GET: Sijaintis/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Laitteet laitteet = db.Laitteet.Find(id);
-            if (laitteet == null)
+            Sijainti sijainti = db.Sijainti.Find(id);
+            if (sijainti == null)
             {
                 return HttpNotFound();
             }
-            return View(laitteet);
+            return View(sijainti);
         }
 
-        // POST: Poista/Delete/5
+        // POST: Sijaintis/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Laitteet laitteet = db.Laitteet.Find(id);
-            db.Laitteet.Remove(laitteet);
+            Sijainti sijainti = db.Sijainti.Find(id);
+            db.Sijainti.Remove(sijainti);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

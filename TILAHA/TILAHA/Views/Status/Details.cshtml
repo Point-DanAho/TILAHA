@@ -1,0 +1,42 @@
+﻿@model TILAHA.Controllers.Models.Status
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Status</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OletusPaikka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OletusPaikka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Muu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Muu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lainassa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lainassa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DeviceId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

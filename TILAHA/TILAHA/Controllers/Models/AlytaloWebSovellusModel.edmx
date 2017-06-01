@@ -4,7 +4,21 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LaitekantaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="WarehouseDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Henkilot">
+          <Key>
+            <PropertyRef Name="Henkilo_id" />
+          </Key>
+          <Property Name="Henkilo_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Etunimi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sukunimi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Osoite" Type="nvarchar" MaxLength="100" />
+          <Property Name="Esimies" Type="int" />
+          <Property Name="Postinumero" Type="varchar" MaxLength="5" />
+          <Property Name="Sahkoposti" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WarehouseDB.dbo.Huolto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Huolto">
           <Key>
             <PropertyRef Name="DeviceId" />
@@ -15,6 +29,8 @@
           <Property Name="Servicewww" Type="varchar" MaxLength="100" />
           <Property Name="ServiceMail" Type="varchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WarehouseDB.dbo.Kuva' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Kuva">
           <Key>
             <PropertyRef Name="DeviceID" />
@@ -24,6 +40,8 @@
           <Property Name="Image2" Type="image" />
           <Property Name="Image3" Type="image" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WarehouseDB.dbo.Lainaaja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Lainaaja">
           <Key>
             <PropertyRef Name="DeviceId" />
@@ -32,9 +50,15 @@
           <Property Name="RespPerson" Type="varchar" MaxLength="50" />
           <Property Name="User" Type="varchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WarehouseDB.dbo.Laite' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Laite">
           <Key>
             <PropertyRef Name="DeviceId" />
+            <PropertyRef Name="AccId" />
+            <PropertyRef Name="Model" />
+            <PropertyRef Name="SN" />
+            <PropertyRef Name="PurcDate" />
           </Key>
           <Property Name="DeviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AccId" Type="bigint" Nullable="false" />
@@ -48,6 +72,24 @@
           <Property Name="WarrEndDate" Type="datetime" />
           <Property Name="PurchPrize" Type="smallint" />
         </EntityType>
+        <EntityType Name="Laitteet">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WarrantyId" Type="int" Nullable="false" />
+          <Property Name="Make" Type="varchar" MaxLength="50" />
+          <Property Name="Model" Type="varchar" MaxLength="50" />
+          <Property Name="SN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Condition" Type="varchar" MaxLength="50" />
+          <Property Name="DeviceType" Type="varchar" MaxLength="50" />
+          <Property Name="AddInfo" Type="varchar" MaxLength="50" />
+          <Property Name="PurcDate" Type="date" />
+          <Property Name="WarrEndDate" Type="date" />
+          <Property Name="PurchPrize" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WarehouseDB.dbo.Osoite' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Osoite">
           <Key>
             <PropertyRef Name="Building" />
@@ -57,9 +99,12 @@
           <Property Name="Address2" Type="varchar" MaxLength="100" />
           <Property Name="PostNR" Type="smallint" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WarehouseDB.dbo.Sijainti' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Sijainti">
           <Key>
             <PropertyRef Name="DeviceId" />
+            <PropertyRef Name="Building" />
           </Key>
           <Property Name="DeviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Building" Type="varchar" MaxLength="100" Nullable="false" />
@@ -68,6 +113,8 @@
           <Property Name="Shelf" Type="varchar" MaxLength="50" />
           <Property Name="Status" Type="varchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WarehouseDB.dbo.Status' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Status">
           <Key>
             <PropertyRef Name="DeviceId" />
@@ -77,15 +124,20 @@
           <Property Name="Muu" Type="varchar" MaxLength="50" />
           <Property Name="Lainassa" Type="varchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WarehouseDB.dbo.Takuu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Takuu">
           <Key>
-            <PropertyRef Name="DeviceId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="DeviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WarehouseDB.dbo.Varuste' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Varuste">
           <Key>
             <PropertyRef Name="AccId" />
+            <PropertyRef Name="DeviceID" />
           </Key>
           <Property Name="AccId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DeviceID" Type="int" Nullable="false" />
@@ -94,22 +146,123 @@
           <Property Name="Acc3" Type="varchar" MaxLength="50" />
           <Property Name="Acc4" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityContainer Name="LaitekantaModelStoreContainer">
-          <EntitySet Name="Huolto" EntityType="Self.Huolto" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Kuva" EntityType="Self.Kuva" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Lainaaja" EntityType="Self.Lainaaja" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Laite" EntityType="Self.Laite" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Osoite" EntityType="Self.Osoite" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Sijainti" EntityType="Self.Sijainti" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Takuu" EntityType="Self.Takuu" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Varuste" EntityType="Self.Varuste" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="WarehouseDBModelStoreContainer">
+          <EntitySet Name="Henkilot" EntityType="Self.Henkilot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Laitteet" EntityType="Self.Laitteet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Huolto" EntityType="Self.Huolto" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Huolto].[DeviceId] AS [DeviceId], 
+    [Huolto].[Service] AS [Service], 
+    [Huolto].[ServicePhone] AS [ServicePhone], 
+    [Huolto].[Servicewww] AS [Servicewww], 
+    [Huolto].[ServiceMail] AS [ServiceMail]
+    FROM [dbo].[Huolto] AS [Huolto]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Kuva" EntityType="Self.Kuva" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Kuva].[DeviceID] AS [DeviceID], 
+    [Kuva].[Image] AS [Image], 
+    [Kuva].[Image2] AS [Image2], 
+    [Kuva].[Image3] AS [Image3]
+    FROM [dbo].[Kuva] AS [Kuva]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Lainaaja" EntityType="Self.Lainaaja" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Lainaaja].[DeviceId] AS [DeviceId], 
+    [Lainaaja].[RespPerson] AS [RespPerson], 
+    [Lainaaja].[User] AS [User]
+    FROM [dbo].[Lainaaja] AS [Lainaaja]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Laite" EntityType="Self.Laite" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Laite].[DeviceId] AS [DeviceId], 
+    [Laite].[AccId] AS [AccId], 
+    [Laite].[Model] AS [Model], 
+    [Laite].[Type] AS [Type], 
+    [Laite].[SN] AS [SN], 
+    [Laite].[Cond] AS [Cond], 
+    [Laite].[DeviceType] AS [DeviceType], 
+    [Laite].[AddInfo] AS [AddInfo], 
+    [Laite].[PurcDate] AS [PurcDate], 
+    [Laite].[WarrEndDate] AS [WarrEndDate], 
+    [Laite].[PurchPrize] AS [PurchPrize]
+    FROM [dbo].[Laite] AS [Laite]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Osoite" EntityType="Self.Osoite" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Osoite].[Building] AS [Building], 
+    [Osoite].[Address] AS [Address], 
+    [Osoite].[Address2] AS [Address2], 
+    [Osoite].[PostNR] AS [PostNR]
+    FROM [dbo].[Osoite] AS [Osoite]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Sijainti" EntityType="Self.Sijainti" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Sijainti].[DeviceId] AS [DeviceId], 
+    [Sijainti].[Building] AS [Building], 
+    [Sijainti].[Space] AS [Space], 
+    [Sijainti].[Locker] AS [Locker], 
+    [Sijainti].[Shelf] AS [Shelf], 
+    [Sijainti].[Status] AS [Status]
+    FROM [dbo].[Sijainti] AS [Sijainti]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Status" EntityType="Self.Status" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Status].[DeviceId] AS [DeviceId], 
+    [Status].[OletusPaikka] AS [OletusPaikka], 
+    [Status].[Muu] AS [Muu], 
+    [Status].[Lainassa] AS [Lainassa]
+    FROM [dbo].[Status] AS [Status]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Takuu" EntityType="Self.Takuu" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Takuu].[Id] AS [Id]
+    FROM [dbo].[Takuu] AS [Takuu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Varuste" EntityType="Self.Varuste" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Varuste].[AccId] AS [AccId], 
+    [Varuste].[DeviceID] AS [DeviceID], 
+    [Varuste].[Acc1] AS [Acc1], 
+    [Varuste].[Acc2] AS [Acc2], 
+    [Varuste].[Acc3] AS [Acc3], 
+    [Varuste].[Acc4] AS [Acc4]
+    FROM [dbo].[Varuste] AS [Varuste]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="LaitekantaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="WarehouseDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Henkilot">
+          <Key>
+            <PropertyRef Name="Henkilo_id" />
+          </Key>
+          <Property Name="Henkilo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Etunimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sukunimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Osoite" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Esimies" Type="Int32" />
+          <Property Name="Postinumero" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Sahkoposti" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Laitteet">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WarrantyId" Type="Int32" Nullable="false" />
+          <Property Name="Make" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Condition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeviceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PurcDate" Type="DateTime" Precision="0" />
+          <Property Name="WarrEndDate" Type="DateTime" Precision="0" />
+          <Property Name="PurchPrize" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityType Name="Huolto">
           <Key>
             <PropertyRef Name="DeviceId" />
@@ -140,6 +293,10 @@
         <EntityType Name="Laite">
           <Key>
             <PropertyRef Name="DeviceId" />
+            <PropertyRef Name="AccId" />
+            <PropertyRef Name="Model" />
+            <PropertyRef Name="SN" />
+            <PropertyRef Name="PurcDate" />
           </Key>
           <Property Name="DeviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AccId" Type="Int64" Nullable="false" />
@@ -165,6 +322,7 @@
         <EntityType Name="Sijainti">
           <Key>
             <PropertyRef Name="DeviceId" />
+            <PropertyRef Name="Building" />
           </Key>
           <Property Name="DeviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Building" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
@@ -184,13 +342,14 @@
         </EntityType>
         <EntityType Name="Takuu">
           <Key>
-            <PropertyRef Name="DeviceId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="DeviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="Varuste">
           <Key>
             <PropertyRef Name="AccId" />
+            <PropertyRef Name="DeviceID" />
           </Key>
           <Property Name="AccId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DeviceID" Type="Int32" Nullable="false" />
@@ -199,7 +358,9 @@
           <Property Name="Acc3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Acc4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="LaitekantaEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="WarehouseDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Henkilot" EntityType="Self.Henkilot" />
+          <EntitySet Name="Laitteet" EntityType="Self.Laitteet" />
           <EntitySet Name="Huolto" EntityType="Self.Huolto" />
           <EntitySet Name="Kuva" EntityType="Self.Kuva" />
           <EntitySet Name="Lainaaja" EntityType="Self.Lainaaja" />
@@ -215,9 +376,39 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="LaitekantaModelStoreContainer" CdmEntityContainer="LaitekantaEntities">
+        <EntityContainerMapping StorageEntityContainer="WarehouseDBModelStoreContainer" CdmEntityContainer="WarehouseDBEntities">
+          <EntitySetMapping Name="Henkilot">
+            <EntityTypeMapping TypeName="WarehouseDBModel.Henkilot">
+              <MappingFragment StoreEntitySet="Henkilot">
+                <ScalarProperty Name="Henkilo_id" ColumnName="Henkilo_id" />
+                <ScalarProperty Name="Etunimi" ColumnName="Etunimi" />
+                <ScalarProperty Name="Sukunimi" ColumnName="Sukunimi" />
+                <ScalarProperty Name="Osoite" ColumnName="Osoite" />
+                <ScalarProperty Name="Esimies" ColumnName="Esimies" />
+                <ScalarProperty Name="Postinumero" ColumnName="Postinumero" />
+                <ScalarProperty Name="Sahkoposti" ColumnName="Sahkoposti" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Laitteet">
+            <EntityTypeMapping TypeName="WarehouseDBModel.Laitteet">
+              <MappingFragment StoreEntitySet="Laitteet">
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="WarrantyId" ColumnName="WarrantyId" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="SN" ColumnName="SN" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+                <ScalarProperty Name="AddInfo" ColumnName="AddInfo" />
+                <ScalarProperty Name="PurcDate" ColumnName="PurcDate" />
+                <ScalarProperty Name="WarrEndDate" ColumnName="WarrEndDate" />
+                <ScalarProperty Name="PurchPrize" ColumnName="PurchPrize" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Huolto">
-            <EntityTypeMapping TypeName="LaitekantaModel.Huolto">
+            <EntityTypeMapping TypeName="WarehouseDBModel.Huolto">
               <MappingFragment StoreEntitySet="Huolto">
                 <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
                 <ScalarProperty Name="Service" ColumnName="Service" />
@@ -228,7 +419,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Kuva">
-            <EntityTypeMapping TypeName="LaitekantaModel.Kuva">
+            <EntityTypeMapping TypeName="WarehouseDBModel.Kuva">
               <MappingFragment StoreEntitySet="Kuva">
                 <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
@@ -238,7 +429,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Lainaaja">
-            <EntityTypeMapping TypeName="LaitekantaModel.Lainaaja">
+            <EntityTypeMapping TypeName="WarehouseDBModel.Lainaaja">
               <MappingFragment StoreEntitySet="Lainaaja">
                 <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
                 <ScalarProperty Name="RespPerson" ColumnName="RespPerson" />
@@ -247,7 +438,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Laite">
-            <EntityTypeMapping TypeName="LaitekantaModel.Laite">
+            <EntityTypeMapping TypeName="WarehouseDBModel.Laite">
               <MappingFragment StoreEntitySet="Laite">
                 <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
                 <ScalarProperty Name="AccId" ColumnName="AccId" />
@@ -264,7 +455,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Osoite">
-            <EntityTypeMapping TypeName="LaitekantaModel.Osoite">
+            <EntityTypeMapping TypeName="WarehouseDBModel.Osoite">
               <MappingFragment StoreEntitySet="Osoite">
                 <ScalarProperty Name="Building" ColumnName="Building" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
@@ -274,7 +465,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sijainti">
-            <EntityTypeMapping TypeName="LaitekantaModel.Sijainti">
+            <EntityTypeMapping TypeName="WarehouseDBModel.Sijainti">
               <MappingFragment StoreEntitySet="Sijainti">
                 <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
                 <ScalarProperty Name="Building" ColumnName="Building" />
@@ -286,7 +477,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Status">
-            <EntityTypeMapping TypeName="LaitekantaModel.Status">
+            <EntityTypeMapping TypeName="WarehouseDBModel.Status">
               <MappingFragment StoreEntitySet="Status">
                 <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
                 <ScalarProperty Name="OletusPaikka" ColumnName="OletusPaikka" />
@@ -296,14 +487,14 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Takuu">
-            <EntityTypeMapping TypeName="LaitekantaModel.Takuu">
+            <EntityTypeMapping TypeName="WarehouseDBModel.Takuu">
               <MappingFragment StoreEntitySet="Takuu">
-                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Varuste">
-            <EntityTypeMapping TypeName="LaitekantaModel.Varuste">
+            <EntityTypeMapping TypeName="WarehouseDBModel.Varuste">
               <MappingFragment StoreEntitySet="Varuste">
                 <ScalarProperty Name="AccId" ColumnName="AccId" />
                 <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />

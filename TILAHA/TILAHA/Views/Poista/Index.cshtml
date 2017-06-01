@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TILAHA.Controllers.Models.Laite>
+﻿@model IEnumerable<TILAHA.Controllers.Models.Laitteet>
 
 @{
     ViewBag.Title = "Index";
@@ -6,22 +6,23 @@
 
 <h2>Index</h2>
 
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.AccId)
+            @Html.DisplayNameFor(model => model.WarrantyId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Make)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Model)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Type)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.SN)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Cond)
+            @Html.DisplayNameFor(model => model.Condition)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DeviceType)
@@ -44,19 +45,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.AccId)
+            @Html.DisplayFor(modelItem => item.WarrantyId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Make)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Model)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.SN)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Cond)
+            @Html.DisplayFor(modelItem => item.Condition)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DeviceType)
@@ -74,7 +75,7 @@
             @Html.DisplayFor(modelItem => item.PurchPrize)
         </td>
         <td>
-            
+           
             @Html.ActionLink("Delete", "Delete", new { id=item.DeviceId })
         </td>
     </tr>

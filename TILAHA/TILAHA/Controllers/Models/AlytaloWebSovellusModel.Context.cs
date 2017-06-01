@@ -13,10 +13,10 @@ namespace TILAHA.Controllers.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LaitekantaEntities : DbContext
+    public partial class WarehouseDBEntities : DbContext
     {
-        public LaitekantaEntities()
-            : base("name=LaitekantaEntities")
+        public WarehouseDBEntities()
+            : base("name=WarehouseDBEntities")
         {
         }
     
@@ -25,6 +25,8 @@ namespace TILAHA.Controllers.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Henkilot> Henkilot { get; set; }
+        public virtual DbSet<Laitteet> Laitteet { get; set; }
         public virtual DbSet<Huolto> Huolto { get; set; }
         public virtual DbSet<Kuva> Kuva { get; set; }
         public virtual DbSet<Lainaaja> Lainaaja { get; set; }

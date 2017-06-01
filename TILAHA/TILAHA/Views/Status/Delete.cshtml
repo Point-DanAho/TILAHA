@@ -1,0 +1,48 @@
+﻿@model TILAHA.Controllers.Models.Status
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Status</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OletusPaikka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OletusPaikka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Muu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Muu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lainassa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lainassa)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

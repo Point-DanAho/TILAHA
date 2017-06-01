@@ -171,88 +171,94 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LaiteController.cs" />
+    <Compile Include="Controllers\LaitteetsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Models\AlytaloWebSovellusModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AlytaloWebSovellusModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Models\AlytaloWebSovellusModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AlytaloWebSovellusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Models\AlytaloWebSovellusModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AlytaloWebSovellusModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Models\Henkilot.cs">
+      <DependentUpon>AlytaloWebSovellusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Models\Huolto.cs">
+      <DependentUpon>AlytaloWebSovellusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Models\Kuva.cs">
+      <DependentUpon>AlytaloWebSovellusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Models\Lainaaja.cs">
+      <DependentUpon>AlytaloWebSovellusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Models\Laite.cs">
+      <DependentUpon>AlytaloWebSovellusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Models\Laitteet.cs">
+      <DependentUpon>AlytaloWebSovellusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Models\Osoite.cs">
+      <DependentUpon>AlytaloWebSovellusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Models\Sijainti.cs">
+      <DependentUpon>AlytaloWebSovellusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Models\Status.cs">
+      <DependentUpon>AlytaloWebSovellusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Models\Takuu.cs">
+      <DependentUpon>AlytaloWebSovellusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Models\Varuste.cs">
+      <DependentUpon>AlytaloWebSovellusModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\PoistaController.cs" />
-    <Compile Include="Controllers\SijaintiController.cs" />
+    <Compile Include="Controllers\SijaintisController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
-    <Compile Include="Controllers\VarusteetController.cs" />
+    <Compile Include="Controllers\VarustesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Controllers\Models\AccountViewModels.cs" />
-    <Compile Include="Controllers\Models\Huolto.cs">
-      <DependentUpon>LaiteModelApp.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\Models\IdentityModels.cs" />
-    <Compile Include="Controllers\Models\Kuva.cs">
-      <DependentUpon>LaiteModelApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Models\Lainaaja.cs">
-      <DependentUpon>LaiteModelApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Models\Laite.cs">
-      <DependentUpon>LaiteModelApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Models\LaiteModelApp.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LaiteModelApp.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Models\LaiteModelApp.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LaiteModelApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Models\LaiteModelApp.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LaiteModelApp.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\Models\ManageViewModels.cs" />
-    <Compile Include="Controllers\Models\Osoite.cs">
-      <DependentUpon>LaiteModelApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Models\Sijainti.cs">
-      <DependentUpon>LaiteModelApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Models\Status.cs">
-      <DependentUpon>LaiteModelApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Models\Takuu.cs">
-      <DependentUpon>LaiteModelApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Models\Varuste.cs">
-      <DependentUpon>LaiteModelApp.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Controllers\Models\AlytaloWebSovellusModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AlytaloWebSovellusModel.edmx</DependentUpon>
+      <LastGenOutput>AlytaloWebSovellusModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Controllers\Models\AlytaloWebSovellusModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AlytaloWebSovellusModel.edmx</DependentUpon>
+      <LastGenOutput>AlytaloWebSovellusModel.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Controllers\Models\LaiteModelApp.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LaiteModelApp.edmx</DependentUpon>
-      <LastGenOutput>LaiteModelApp.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Controllers\Models\LaiteModelApp.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LaiteModelApp.edmx</DependentUpon>
-      <LastGenOutput>LaiteModelApp.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Controllers\Models\LaiteModelApp.edmx">
+    <EntityDeploy Include="Controllers\Models\AlytaloWebSovellusModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LaiteModelApp.Designer.cs</LastGenOutput>
+      <LastGenOutput>AlytaloWebSovellusModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Controllers\Models\LaiteModelApp.edmx.diagram">
-      <DependentUpon>LaiteModelApp.edmx</DependentUpon>
+    <Content Include="Controllers\Models\AlytaloWebSovellusModel.edmx.diagram">
+      <DependentUpon>AlytaloWebSovellusModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -300,12 +306,31 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Laite\Index.cshtml" />
-    <Content Include="Views\Status\Index.cshtml" />
-    <Content Include="Views\Sijainti\Index.cshtml" />
-    <Content Include="Views\Varusteet\Index.cshtml" />
+    <Content Include="Views\Laitteets\Create.cshtml" />
+    <Content Include="Views\Laitteets\Delete.cshtml" />
+    <Content Include="Views\Laitteets\Details.cshtml" />
+    <Content Include="Views\Laitteets\Edit.cshtml" />
+    <Content Include="Views\Laitteets\Index.cshtml" />
+    <Content Include="Views\Poista\Create.cshtml" />
     <Content Include="Views\Poista\Delete.cshtml" />
+    <Content Include="Views\Poista\Details.cshtml" />
+    <Content Include="Views\Poista\Edit.cshtml" />
     <Content Include="Views\Poista\Index.cshtml" />
+    <Content Include="Views\Varustes\Create.cshtml" />
+    <Content Include="Views\Varustes\Delete.cshtml" />
+    <Content Include="Views\Varustes\Details.cshtml" />
+    <Content Include="Views\Varustes\Edit.cshtml" />
+    <Content Include="Views\Varustes\Index.cshtml" />
+    <Content Include="Views\Sijaintis\Create.cshtml" />
+    <Content Include="Views\Sijaintis\Delete.cshtml" />
+    <Content Include="Views\Sijaintis\Details.cshtml" />
+    <Content Include="Views\Sijaintis\Edit.cshtml" />
+    <Content Include="Views\Sijaintis\Index.cshtml" />
+    <Content Include="Views\Status\Create.cshtml" />
+    <Content Include="Views\Status\Delete.cshtml" />
+    <Content Include="Views\Status\Details.cshtml" />
+    <Content Include="Views\Status\Edit.cshtml" />
+    <Content Include="Views\Status\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

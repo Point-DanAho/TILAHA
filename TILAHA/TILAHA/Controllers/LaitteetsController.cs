@@ -10,17 +10,17 @@ using TILAHA.Controllers.Models;
 
 namespace TILAHA.Controllers
 {
-    public class PoistaController : Controller
+    public class LaitteetsController : Controller
     {
         private WarehouseDBEntities db = new WarehouseDBEntities();
 
-        // GET: Poista
+        // GET: Laitteets
         public ActionResult Index()
         {
             return View(db.Laitteet.ToList());
         }
 
-        // GET: Poista/Details/5
+        // GET: Laitteets/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,13 +35,13 @@ namespace TILAHA.Controllers
             return View(laitteet);
         }
 /*
-        // GET: Poista/Create
+        // GET: Laitteets/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Poista/Create
+        // POST: Laitteets/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -58,7 +58,7 @@ namespace TILAHA.Controllers
             return View(laitteet);
         }
 
-        // GET: Poista/Edit/5
+        // GET: Laitteets/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,7 +73,7 @@ namespace TILAHA.Controllers
             return View(laitteet);
         }
 
-        // POST: Poista/Edit/5
+        // POST: Laitteets/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -88,8 +88,8 @@ namespace TILAHA.Controllers
             }
             return View(laitteet);
         }
-*/
-        // GET: Poista/Delete/5
+
+        // GET: Laitteets/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace TILAHA.Controllers
             return View(laitteet);
         }
 
-        // POST: Poista/Delete/5
+        // POST: Laitteets/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -114,7 +114,7 @@ namespace TILAHA.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+*/
         protected override void Dispose(bool disposing)
         {
             if (disposing)

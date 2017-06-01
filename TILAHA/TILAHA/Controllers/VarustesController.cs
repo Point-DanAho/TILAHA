@@ -10,107 +10,107 @@ using TILAHA.Controllers.Models;
 
 namespace TILAHA.Controllers
 {
-    public class PoistaController : Controller
+    public class VarustesController : Controller
     {
         private WarehouseDBEntities db = new WarehouseDBEntities();
 
-        // GET: Poista
+        // GET: Varustes
         public ActionResult Index()
         {
-            return View(db.Laitteet.ToList());
+            return View(db.Varuste.ToList());
         }
 
-        // GET: Poista/Details/5
+        // GET: Varustes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Laitteet laitteet = db.Laitteet.Find(id);
-            if (laitteet == null)
+            Varuste varuste = db.Varuste.Find(id);
+            if (varuste == null)
             {
                 return HttpNotFound();
             }
-            return View(laitteet);
+            return View(varuste);
         }
-/*
-        // GET: Poista/Create
+
+        // GET: Varustes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Poista/Create
+        // POST: Varustes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DeviceId,WarrantyId,Make,Model,SN,Condition,DeviceType,AddInfo,PurcDate,WarrEndDate,PurchPrize")] Laitteet laitteet)
+        public ActionResult Create([Bind(Include = "AccId,DeviceID,Acc1,Acc2,Acc3,Acc4")] Varuste varuste)
         {
             if (ModelState.IsValid)
             {
-                db.Laitteet.Add(laitteet);
+                db.Varuste.Add(varuste);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(laitteet);
+            return View(varuste);
         }
 
-        // GET: Poista/Edit/5
+        // GET: Varustes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Laitteet laitteet = db.Laitteet.Find(id);
-            if (laitteet == null)
+            Varuste varuste = db.Varuste.Find(id);
+            if (varuste == null)
             {
                 return HttpNotFound();
             }
-            return View(laitteet);
+            return View(varuste);
         }
 
-        // POST: Poista/Edit/5
+        // POST: Varustes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DeviceId,WarrantyId,Make,Model,SN,Condition,DeviceType,AddInfo,PurcDate,WarrEndDate,PurchPrize")] Laitteet laitteet)
+        public ActionResult Edit([Bind(Include = "AccId,DeviceID,Acc1,Acc2,Acc3,Acc4")] Varuste varuste)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(laitteet).State = EntityState.Modified;
+                db.Entry(varuste).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(laitteet);
+            return View(varuste);
         }
-*/
-        // GET: Poista/Delete/5
+
+        // GET: Varustes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Laitteet laitteet = db.Laitteet.Find(id);
-            if (laitteet == null)
+            Varuste varuste = db.Varuste.Find(id);
+            if (varuste == null)
             {
                 return HttpNotFound();
             }
-            return View(laitteet);
+            return View(varuste);
         }
 
-        // POST: Poista/Delete/5
+        // POST: Varustes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Laitteet laitteet = db.Laitteet.Find(id);
-            db.Laitteet.Remove(laitteet);
+            Varuste varuste = db.Varuste.Find(id);
+            db.Varuste.Remove(varuste);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

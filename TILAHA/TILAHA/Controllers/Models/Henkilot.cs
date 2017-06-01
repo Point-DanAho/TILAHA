@@ -12,8 +12,14 @@ namespace TILAHA.Controllers.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Takuu
+    public partial class Henkilot
     {
-        public int Id { get; set; }
+        public int Henkilo_id { get; set; }
+        public string Etunimi { get; set; }
+        public string Sukunimi { get; set; }
+        public string Osoite { get; set; }
+        public Nullable<int> Esimies { get; set; }
+        public string Postinumero { get; set; }
+        public string Sahkoposti { get; set; }
     }
 }
