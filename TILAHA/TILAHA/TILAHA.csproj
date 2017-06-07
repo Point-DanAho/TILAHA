@@ -221,6 +221,7 @@
     <Compile Include="Controllers\Models\Varuste.cs">
       <DependentUpon>AlytaloWebSovellusModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\MuokkaaController.cs" />
     <Compile Include="Controllers\PoistaController.cs" />
     <Compile Include="Controllers\SijaintisController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
@@ -332,6 +333,11 @@
     <Content Include="Views\Status\Details.cshtml" />
     <Content Include="Views\Status\Edit.cshtml" />
     <Content Include="Views\Status\Index.cshtml" />
+    <Content Include="Views\Muokkaa\Create.cshtml" />
+    <Content Include="Views\Muokkaa\Delete.cshtml" />
+    <Content Include="Views\Muokkaa\Details.cshtml" />
+    <Content Include="Views\Muokkaa\Edit.cshtml" />
+    <Content Include="Views\Muokkaa\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
