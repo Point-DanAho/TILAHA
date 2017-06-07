@@ -12,16 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Acc1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Acc2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Acc3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Acc4)
+            @Html.DisplayNameFor(model => model.Varusteet)
         </th>
         <th></th>
     </tr>
@@ -29,16 +20,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Acc1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Acc2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Acc3)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Acc4)
+            @Html.DisplayFor(modelItem => item.Varusteet)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
@@ -49,11 +31,3 @@
 }
 
 </table>
-
-<button onclick="goBack()">Takaisin etusivulle</button>
-
-<script>
-function goBack() {
-    window.history.back();
-}
-</script>

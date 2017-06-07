@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WarehouseDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WarehouseDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Henkilot">
           <Key>
             <PropertyRef Name="Henkilo_id" />
@@ -131,6 +131,8 @@ warning 6002: The table/view 'WarehouseDB.dbo.Takuu' does not have a primary key
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeviceID" Type="int" />
+          <Property Name="Takuuhuolto" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'WarehouseDB.dbo.Varuste' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -141,10 +143,7 @@ warning 6002: The table/view 'WarehouseDB.dbo.Varuste' does not have a primary k
           </Key>
           <Property Name="AccId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DeviceID" Type="int" Nullable="false" />
-          <Property Name="Acc1" Type="varchar" MaxLength="50" />
-          <Property Name="Acc2" Type="varchar" MaxLength="50" />
-          <Property Name="Acc3" Type="varchar" MaxLength="50" />
-          <Property Name="Acc4" Type="varchar" MaxLength="50" />
+          <Property Name="Varusteet" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityContainer Name="WarehouseDBModelStoreContainer">
           <EntitySet Name="Henkilot" EntityType="Self.Henkilot" Schema="dbo" store:Type="Tables" />
@@ -216,22 +215,20 @@ warning 6002: The table/view 'WarehouseDB.dbo.Varuste' does not have a primary k
           </EntitySet>
           <EntitySet Name="Takuu" EntityType="Self.Takuu" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Takuu].[Id] AS [Id]
+    [Takuu].[Id] AS [Id], 
+    [Takuu].[DeviceID] AS [DeviceID], 
+    [Takuu].[Takuuhuolto] AS [Takuuhuolto]
     FROM [dbo].[Takuu] AS [Takuu]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Varuste" EntityType="Self.Varuste" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Varuste].[AccId] AS [AccId], 
     [Varuste].[DeviceID] AS [DeviceID], 
-    [Varuste].[Acc1] AS [Acc1], 
-    [Varuste].[Acc2] AS [Acc2], 
-    [Varuste].[Acc3] AS [Acc3], 
-    [Varuste].[Acc4] AS [Acc4]
+    [Varuste].[Varusteet] AS [Varusteet]
     FROM [dbo].[Varuste] AS [Varuste]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WarehouseDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -345,6 +342,8 @@ warning 6002: The table/view 'WarehouseDB.dbo.Varuste' does not have a primary k
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceID" Type="Int32" />
+          <Property Name="Takuuhuolto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Varuste">
           <Key>
@@ -353,10 +352,7 @@ warning 6002: The table/view 'WarehouseDB.dbo.Varuste' does not have a primary k
           </Key>
           <Property Name="AccId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DeviceID" Type="Int32" Nullable="false" />
-          <Property Name="Acc1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Acc2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Acc3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Acc4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Varusteet" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="WarehouseDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Henkilot" EntityType="Self.Henkilot" />
@@ -489,6 +485,8 @@ warning 6002: The table/view 'WarehouseDB.dbo.Varuste' does not have a primary k
           <EntitySetMapping Name="Takuu">
             <EntityTypeMapping TypeName="WarehouseDBModel.Takuu">
               <MappingFragment StoreEntitySet="Takuu">
+                <ScalarProperty Name="Takuuhuolto" ColumnName="Takuuhuolto" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -496,13 +494,10 @@ warning 6002: The table/view 'WarehouseDB.dbo.Varuste' does not have a primary k
           <EntitySetMapping Name="Varuste">
             <EntityTypeMapping TypeName="WarehouseDBModel.Varuste">
               <MappingFragment StoreEntitySet="Varuste">
+                <ScalarProperty Name="Varusteet" ColumnName="Varusteet" />
                 <ScalarProperty Name="AccId" ColumnName="AccId" />
                 <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
-                <ScalarProperty Name="Acc1" ColumnName="Acc1" />
-                <ScalarProperty Name="Acc2" ColumnName="Acc2" />
-                <ScalarProperty Name="Acc3" ColumnName="Acc3" />
-                <ScalarProperty Name="Acc4" ColumnName="Acc4" />
-              </MappingFragment>
+                </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
         </EntityContainerMapping>
@@ -519,7 +514,7 @@ warning 6002: The table/view 'WarehouseDB.dbo.Varuste' does not have a primary k
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

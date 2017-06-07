@@ -46,7 +46,7 @@ namespace TILAHA.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AccId,DeviceID,Acc1,Acc2,Acc3,Acc4")] Varuste varuste)
+        public ActionResult Create([Bind(Include = "AccId,DeviceID,Varusteet")] Varuste varuste)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace TILAHA.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AccId,DeviceID,Acc1,Acc2,Acc3,Acc4")] Varuste varuste)
+        public ActionResult Edit([Bind(Include = "AccId,DeviceID,Varusteet")] Varuste varuste)
         {
             if (ModelState.IsValid)
             {

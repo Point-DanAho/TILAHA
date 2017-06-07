@@ -15,5 +15,7 @@ namespace TILAHA.Controllers.Models
     public partial class Takuu
     {
         public int Id { get; set; }
+        public Nullable<int> DeviceID { get; set; }
+        public string Takuuhuolto { get; set; }
     }
 }

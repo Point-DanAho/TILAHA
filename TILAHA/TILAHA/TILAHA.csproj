@@ -319,11 +319,6 @@
     <Content Include="Views\Poista\Details.cshtml" />
     <Content Include="Views\Poista\Edit.cshtml" />
     <Content Include="Views\Poista\Index.cshtml" />
-    <Content Include="Views\Varustes\Create.cshtml" />
-    <Content Include="Views\Varustes\Delete.cshtml" />
-    <Content Include="Views\Varustes\Details.cshtml" />
-    <Content Include="Views\Varustes\Edit.cshtml" />
-    <Content Include="Views\Varustes\Index.cshtml" />
     <Content Include="Views\Sijaintis\Create.cshtml" />
     <Content Include="Views\Sijaintis\Delete.cshtml" />
     <Content Include="Views\Sijaintis\Details.cshtml" />
@@ -339,6 +334,11 @@
     <Content Include="Views\LisaaLaite\Details.cshtml" />
     <Content Include="Views\LisaaLaite\Edit.cshtml" />
     <Content Include="Views\LisaaLaite\Index.cshtml" />
+    <Content Include="Views\Varustes\Create.cshtml" />
+    <Content Include="Views\Varustes\Delete.cshtml" />
+    <Content Include="Views\Varustes\Details.cshtml" />
+    <Content Include="Views\Varustes\Edit.cshtml" />
+    <Content Include="Views\Varustes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

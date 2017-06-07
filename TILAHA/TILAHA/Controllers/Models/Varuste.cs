@@ -16,9 +16,6 @@ namespace TILAHA.Controllers.Models
     {
         public int AccId { get; set; }
         public int DeviceID { get; set; }
-        public string Acc1 { get; set; }
-        public string Acc2 { get; set; }
-        public string Acc3 { get; set; }
-        public string Acc4 { get; set; }
+        public string Varusteet { get; set; }
     }
 }
