@@ -172,6 +172,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LaitteetsController.cs" />
+    <Compile Include="Controllers\LisaaLaiteController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\Models\AlytaloWebSovellusModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -221,7 +222,6 @@
     <Compile Include="Controllers\Models\Varuste.cs">
       <DependentUpon>AlytaloWebSovellusModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\MuokkaaController.cs" />
     <Compile Include="Controllers\PoistaController.cs" />
     <Compile Include="Controllers\SijaintisController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
@@ -253,6 +253,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Pictures\Kannettava.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Controllers\Models\AlytaloWebSovellusModel.edmx">
@@ -333,11 +334,11 @@
     <Content Include="Views\Status\Details.cshtml" />
     <Content Include="Views\Status\Edit.cshtml" />
     <Content Include="Views\Status\Index.cshtml" />
-    <Content Include="Views\Muokkaa\Create.cshtml" />
-    <Content Include="Views\Muokkaa\Delete.cshtml" />
-    <Content Include="Views\Muokkaa\Details.cshtml" />
-    <Content Include="Views\Muokkaa\Edit.cshtml" />
-    <Content Include="Views\Muokkaa\Index.cshtml" />
+    <Content Include="Views\LisaaLaite\Create.cshtml" />
+    <Content Include="Views\LisaaLaite\Delete.cshtml" />
+    <Content Include="Views\LisaaLaite\Details.cshtml" />
+    <Content Include="Views\LisaaLaite\Edit.cshtml" />
+    <Content Include="Views\LisaaLaite\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
